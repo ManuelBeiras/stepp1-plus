@@ -142,7 +142,7 @@ function CalcPScore(perfects, greats, goods, bads, misses, maxcombo)
 	local notestotal = perfects + greats + goods + bads + misses;
 	if notestotal <= 1 then notestotal = 1 end;
 	local weightednotes = perfects + 0.6*greats + 0.2*goods + 0.1*bads;
-	local pscore = math.round(((weightednotes * 0.995 + maxcombo * 0.005) / notestotal) * 1000000 );
+	local pscore = math.floor(995000*(weightednotes/notestotal) + 5000*(maxcombo/notestotal))
 	if pscore < 0 then
 		pscore = 0;
 	elseif pscore > 1000000 then
